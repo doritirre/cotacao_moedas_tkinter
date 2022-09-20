@@ -5,8 +5,13 @@ from tkinter import ttk
 import pandas as pd
 import numpy as np
 from tkcalendar import DateEntry
+import requests
 
-lista_moedas = ['USD', 'EUR']
+requisicao = requests.get('https://economia.awesomeapi.com.br/json/all')
+dict_moedas = requisicao.json()
+print(requisicao)
+
+lista_moedas = list(dict_moedas.keys())
 
 def pegar_cotacao():
     pass
